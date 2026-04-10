@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    html, body {
+      margin: 0;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    body {
+      color: var(--text);
+    }
+
+    .nav {
+      position: relative;
+    }
+
+    @media (hover:hover) and (pointer:fine) {
+      .nav .dropdown:hover .dropdown-menu {
+        opacity: 0;
+        transform: translateY(6px);
+        pointer-events: none;
+      }
+
+      .nav .dropdown:hover .chev {
+        transform: none;
+      }
+
+      .nav .dropdown.open:hover .dropdown-menu,
+      .nav .dropdown.open .dropdown-menu {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .nav .dropdown.open:hover .chev,
+      .nav .dropdown.open .chev {
+        transform: rotate(180deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="brand" data-nav-target="top" href="#top" target="_parent" aria-label="Go to top">
+        <span class="brand-name">Riley O’Shea</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link active" data-nav-target="top" href="#top" target="_parent">Home</a>
+        <a class="nav-link" data-nav-target="about" href="#about" target="_parent">About</a>
+        <a class="nav-link" data-nav-target="experience" href="#experience" target="_parent">Experience</a>
+
+        <div class="dropdown" id="projectsDropdown">
+          <button class="dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="projectsMenu">
+            Projects
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <div class="dropdown-menu" id="projectsMenu" role="menu" aria-label="Projects">
+            <a class="dropdown-item" data-nav-target="project-travel" href="#project-travel" target="_parent" role="menuitem">
+              <span class="dropdown-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </span>
+              <span>
+                <strong>AI Powered Travel Planning App</strong>
+                <span>Django + OpenAI-powered itinerary generation.</span>
+              </span>
+            </a>
+
+            <a class="dropdown-item" data-nav-target="project-encrypted" href="#project-encrypted" target="_parent" role="menuitem">
+              <span class="dropdown-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 10V8a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M6 10h12v10H6V10Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M12 14v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span>
+                <strong>Encrypted Messaging System</strong>
+                <span>Secure communication patterns and key handling.</span>
+              </span>
+            </a>
+
+            <a class="dropdown-item" data-nav-target="project-caption" href="#project-caption" target="_parent" role="menuitem">
+              <span class="dropdown-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M8 14h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span>
+                <strong>Closed Captioning Audit System</strong>
+                <span>Automated compliance checks and reporting.</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <a class="nav-link" data-nav-target="skills" href="#skills" target="_parent">Skills</a>
+        <a class="nav-link" data-nav-target="education" href="#education" target="_parent">Education</a>
+        <a class="nav-link nav-cta" data-nav-target="connect" href="#connect" target="_parent">Connect</a>
+      </nav>
+
+      <button class="menu-btn" type="button" id="menuBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+      <div class="container mobile-inner">
+        <a class="nav-link" data-nav-target="top" href="#top" target="_parent">Home</a>
+        <a class="nav-link" data-nav-target="about" href="#about" target="_parent">About</a>
+        <a class="nav-link" data-nav-target="experience" href="#experience" target="_parent">Experience</a>
+
+        <div class="dropdown" id="projectsDropdownMobile">
+          <button class="dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="projectsMenuMobile">
+            Projects
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+
+          <div class="dropdown-menu" id="projectsMenuMobile" role="menu" aria-label="Projects">
+            <a class="dropdown-item" data-nav-target="project-travel" href="#project-travel" target="_parent" role="menuitem">
+              <span class="dropdown-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </span>
+              <span>
+                <strong>AI Powered Travel Planning App</strong>
+                <span>Django + OpenAI-powered itinerary generation.</span>
+              </span>
+            </a>
+
+            <a class="dropdown-item" data-nav-target="project-encrypted" href="#project-encrypted" target="_parent" role="menuitem">
+              <span class="dropdown-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 10V8a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M6 10h12v10H6V10Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M12 14v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span>
+                <strong>Encrypted Messaging System</strong>
+                <span>Secure communication patterns and key handling.</span>
+              </span>
+            </a>
+
+            <a class="dropdown-item" data-nav-target="project-caption" href="#project-caption" target="_parent" role="menuitem">
+              <span class="dropdown-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
+                  <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                  <path d="M8 14h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+              </span>
+              <span>
+                <strong>Closed Captioning Audit System</strong>
+                <span>Automated compliance checks and reporting.</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <a class="nav-link" data-nav-target="skills" href="#skills" target="_parent">Skills</a>
+        <a class="nav-link" data-nav-target="education" href="#education" target="_parent">Education</a>
+        <a class="nav-link nav-cta" data-nav-target="connect" href="#connect" target="_parent">Connect</a>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    (function () {
+      function buildHref(basePath, target) {
+        return basePath ? basePath + "#" + target : "#" + target;
+      }
+
+      function getContentHeight() {
+        const header = document.querySelector(".nav");
+        let maxBottom = header ? header.getBoundingClientRect().bottom : 74;
+
+        const openDesktopMenu = document.querySelector(".dropdown.open #projectsMenu");
+        const hoveredDesktopMenu = document.querySelector(".dropdown:hover #projectsMenu");
+        const openMobilePanel = document.getElementById("mobilePanel")?.classList.contains("open");
+        const openMobileMenu = document.querySelector(".dropdown.open #projectsMenuMobile");
+
+        [openDesktopMenu, hoveredDesktopMenu, openMobileMenu].forEach(function (menu) {
+          if (!menu) return;
+          maxBottom = Math.max(maxBottom, menu.getBoundingClientRect().bottom);
+        });
+
+        if (openMobilePanel) {
+          const panel = document.getElementById("mobilePanel");
+          if (panel) {
+            maxBottom = Math.max(maxBottom, panel.getBoundingClientRect().bottom);
+          }
+        }
+
+        return Math.ceil(maxBottom + 8);
+      }
+
+      function reportHeight() {
+        window.parent.postMessage(
+          {
+            type: "navbar:height",
+            height: getContentHeight()
+          },
+          "*"
+        );
+      }
+
+      function rewriteLinks() {
+        const params = new URLSearchParams(window.location.search);
+        const basePath = params.get("base") || "";
+
+        document.querySelectorAll("[data-nav-target]").forEach(function (link) {
+          const target = link.getAttribute("data-nav-target");
+          if (!target) return;
+          link.setAttribute("href", buildHref(basePath, target));
+        });
+      }
+
+      rewriteLinks();
+
+      const dd = document.getElementById("projectsDropdown");
+      const trigger = dd?.querySelector(".dropdown-trigger");
+      const supportsDesktopHover = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+
+      function closeDesktopDropdown() {
+        dd?.classList.remove("open");
+        trigger?.setAttribute("aria-expanded", "false");
+        reportHeight();
+      }
+
+      trigger?.addEventListener("click", function (e) {
+        e.preventDefault();
+        const isOpen = dd.classList.toggle("open");
+        trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        reportHeight();
+      });
+
+      if (supportsDesktopHover && dd && trigger) {
+        dd.addEventListener("mouseenter", function () {
+          dd.classList.add("open");
+          trigger.setAttribute("aria-expanded", "true");
+          requestAnimationFrame(reportHeight);
+        });
+
+        dd.addEventListener("mouseleave", function () {
+          closeDesktopDropdown();
+        });
+      }
+
+      document.addEventListener("click", function (e) {
+        if (!dd || dd.contains(e.target)) return;
+        closeDesktopDropdown();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeDesktopDropdown();
+      });
+
+      const menuBtn = document.getElementById("menuBtn");
+      const mobilePanel = document.getElementById("mobilePanel");
+
+      function closeMobilePanel() {
+        mobilePanel?.classList.remove("open");
+        menuBtn?.setAttribute("aria-expanded", "false");
+        reportHeight();
+      }
+
+      menuBtn?.addEventListener("click", function () {
+        const isOpen = mobilePanel.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        reportHeight();
+      });
+
+      const ddM = document.getElementById("projectsDropdownMobile");
+      const triggerM = ddM?.querySelector(".dropdown-trigger");
+
+      triggerM?.addEventListener("click", function (e) {
+        e.preventDefault();
+        const isOpen = ddM.classList.toggle("open");
+        triggerM.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        reportHeight();
+      });
+
+      mobilePanel?.addEventListener("click", function (e) {
+        const link = e.target.closest("a");
+        if (!link) return;
+        closeMobilePanel();
+      });
+
+      window.addEventListener("load", reportHeight);
+      window.addEventListener("resize", reportHeight);
+      setTimeout(reportHeight, 0);
+    })();
+  </script>
+</body>
+</html>

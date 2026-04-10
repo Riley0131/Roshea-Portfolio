@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Riley O’Shea — Home Lab Server project overview" />
+    <title>Riley O’Shea | Home Lab Server</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        .project-shell {
+            padding-top: calc(var(--nav-h) + 32px);
+            padding-bottom: 4rem;
+        }
+
+        .project-hero {
+            padding: 2rem 0 1.5rem;
+        }
+
+        .project-hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin-bottom: 1rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 0.7rem;
+            height: 0.7rem;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-2));
+            box-shadow: 0 0 18px rgba(94, 234, 212, 0.4);
+        }
+
+        .hero-copy,
+        .hero-summary,
+        .info-card,
+        .topology-card {
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.04));
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .hero-copy {
+            padding: 2rem;
+        }
+
+        .hero-copy h1 {
+            margin: 0 0 1rem;
+            font-family: Fraunces, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-copy p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.02rem;
+            max-width: 62ch;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+        }
+
+        .hero-summary {
+            padding: 1.6rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .summary-title {
+            margin: 0;
+            color: var(--faint);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .summary-list {
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .summary-item {
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .summary-item:last-child {
+            padding-bottom: 0;
+            border-bottom: 0;
+        }
+
+        .summary-item span {
+            display: block;
+            color: var(--faint);
+            font-size: 0.86rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .summary-item strong {
+            display: block;
+            margin-top: 0.25rem;
+            font-size: 1rem;
+            line-height: 1.35;
+        }
+
+        .content-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .info-card {
+            padding: 1.4rem;
+        }
+
+        .info-card h2 {
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .stack-list,
+        .bullet-list {
+            margin: 0;
+            padding-left: 1.15rem;
+            color: var(--muted);
+        }
+
+        .stack-list li,
+        .bullet-list li {
+            margin-bottom: 0.55rem;
+        }
+
+        .topology-card {
+            overflow: hidden;
+        }
+
+        .topology-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 1rem;
+            padding: 1.4rem 1.4rem 0;
+        }
+
+        .topology-head p {
+            margin: 0.35rem 0 0;
+            color: var(--muted);
+        }
+
+        .topology-frame {
+            margin: 1.25rem;
+            padding: 1rem;
+            border-radius: calc(var(--radius-lg) - 8px);
+            background: rgba(11, 18, 32, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: auto;
+        }
+
+        .topology-frame img {
+            display: block;
+            width: 100%;
+            min-width: 720px;
+            height: auto;
+        }
+
+        .caption {
+            padding: 0 1.4rem 1.4rem;
+            color: var(--faint);
+            font-size: 0.95rem;
+        }
+
+        .btn.small {
+            padding: 0.65rem 1rem;
+        }
+
+        @media (max-width: 980px) {
+
+            .project-hero-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .project-shell {
+                padding-bottom: 3rem;
+            }
+
+            .hero-copy,
+            .hero-summary,
+            .info-card {
+                padding: 1.25rem;
+            }
+
+            .topology-head,
+            .caption {
+                padding-inline: 1rem;
+            }
+
+            .topology-frame {
+                margin: 1rem;
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div id="siteHeader" data-nav-base="../index.html"></div>
+
+    <main id="top" class="project-shell">
+        <section class="project-hero">
+            <div class="container project-hero-grid">
+                <div class="hero-copy">
+                    <div class="eyebrow">Infrastructure Project</div>
+                    <h1>Home Lab Server</h1>
+                    <p>
+                        A self-hosted environment for testing infrastructure, networking, virtualization, and monitoring
+                        in a way
+                        that is practical, repeatable, and easy to expand. This page documents the topology and the role
+                        each
+                        layer plays in the lab.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="btn primary" href="../index.html#project-homelab">Back to Projects</a>
+                        <a class="btn small" href="#topology">View Topology</a>
+                    </div>
+                </div>
+
+                <aside class="hero-summary" aria-label="Project summary">
+                    <p class="summary-title">At a glance</p>
+                    <div class="summary-list">
+                        <div class="summary-item">
+                            <span>Platform</span>
+                            <strong>Ubuntu Server with virtualized services and segmented workloads</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Focus Areas</span>
+                            <strong>Networking, service hosting, monitoring, and security experimentation</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Outcome</span>
+                            <strong>A controlled environment for validating configs before using them elsewhere</strong>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            <div class="container info-grid">
+                <article class="info-card">
+                    <h2>Purpose</h2>
+                    <p>
+                        The lab is designed to centralize experimentation. It supports safe testing for new services,
+                        network
+                        layouts, access controls, and operational workflows without risking production systems.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h2>Core Stack</h2>
+                    <ul class="stack-list">
+                        <li>Ubuntu Server</li>
+                        <li>Virtual machines and network segmentation</li>
+                        <li>Self-hosted storage and internal services</li>
+                        <li>Monitoring and observability tooling</li>
+                    </ul>
+                </article>
+
+                <article class="info-card">
+                    <h2>What It Enables</h2>
+                    <ul class="bullet-list">
+                        <li>Service deployment and rollback testing</li>
+                        <li>Network and routing validation</li>
+                        <li>Failure scenario drills and recovery practice</li>
+                        <li>Hands-on security hardening experiments</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="container">
+                <article class="topology-card" id="topology">
+                    <div class="topology-head">
+                        <div>
+                            <h2>Network Topology</h2>
+                        </div>
+                    </div>
+                    <div class="topology-frame">
+                        <img src="home_server_topology.svg"
+                            alt="Diagram showing the home lab server network topology and connected services" />
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="../shared/navbar.js"></script>
+</body>
+
+</html>

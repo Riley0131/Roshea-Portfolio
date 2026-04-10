@@ -1,4 +1,3 @@
-{% load static %}
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,148 +16,7 @@
 
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
-
-  <!-- Header & Navigation -->
-  <header class="nav" role="banner">
-    <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Go to top">
-        <span class="brand-name">Riley O’Shea</span>
-      </a>
-
-      <nav class="nav-links" aria-label="Primary">
-        <a class="nav-link active" href="#top">Home</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#experience">Experience</a>
-
-        <div class="dropdown" id="projectsDropdown">
-          <button class="dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="projectsMenu">
-            Projects
-            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-
-          <div class="dropdown-menu" id="projectsMenu" role="menu" aria-label="Projects">
-            <a class="dropdown-item" href="#project-travel" role="menuitem">
-              <span class="dropdown-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z" stroke="currentColor" stroke-width="2" />
-                  <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="2" />
-                </svg>
-              </span>
-              <span>
-                <strong>AI Powered Travel Planning App</strong>
-                <span>Django + OpenAI-powered itinerary generation.</span>
-              </span>
-            </a>
-
-            <a class="dropdown-item" href="#project-encrypted" role="menuitem">
-              <span class="dropdown-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 10V8a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M6 10h12v10H6V10Z" stroke="currentColor" stroke-width="2" />
-                  <path d="M12 14v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </span>
-              <span>
-                <strong>Encrypted Messaging System</strong>
-                <span>Secure communication patterns and key handling.</span>
-              </span>
-            </a>
-
-            <a class="dropdown-item" href="#project-caption" role="menuitem">
-              <span class="dropdown-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
-                  <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M8 14h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </span>
-              <span>
-                <strong>Closed Captioning Audit System</strong>
-                <span>Automated compliance checks and reporting.</span>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#education">Education</a>
-        <a class="nav-link" href="#connect">Connect</a>
-      </nav>
-
-      <button class="menu-btn" type="button" id="menuBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile panel -->
-    <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
-      <div class="container mobile-inner">
-        <a class="nav-link" href="#top">Home</a>
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#experience">Experience</a>
-
-        <div class="dropdown" id="projectsDropdownMobile">
-          <button class="dropdown-trigger" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="projectsMenuMobile">
-            Projects
-            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-
-          <div class="dropdown-menu" id="projectsMenuMobile" role="menu" aria-label="Projects">
-            <a class="dropdown-item" href="#project-travel" role="menuitem">
-              <span class="dropdown-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z" stroke="currentColor" stroke-width="2" />
-                  <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="2" />
-                </svg>
-              </span>
-              <span>
-                <strong>AI Powered Travel Planning App</strong>
-                <span>Django + OpenAI-powered itinerary generation.</span>
-              </span>
-            </a>
-
-            <a class="dropdown-item" href="#project-encrypted" role="menuitem">
-              <span class="dropdown-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M7 10V8a5 5 0 0 1 10 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M6 10h12v10H6V10Z" stroke="currentColor" stroke-width="2" />
-                  <path d="M12 14v3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </span>
-              <span>
-                <strong>Encrypted Messaging System</strong>
-                <span>Secure communication patterns and key handling.</span>
-              </span>
-            </a>
-
-            <a class="dropdown-item" href="#project-caption" role="menuitem">
-              <span class="dropdown-icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 6h16v12H4V6Z" stroke="currentColor" stroke-width="2" />
-                  <path d="M8 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                  <path d="M8 14h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
-              </span>
-              <span>
-                <strong>Closed Captioning Audit System</strong>
-                <span>Automated compliance checks and reporting.</span>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#education">Education</a>
-        <a class="nav-link" href="#connect">Connect</a>
-      </div>
-    </div>
-  </header>
+  <div id="siteHeader" data-nav-base=""></div>
 
   <main id="top">
     <!-- HERO -->
@@ -350,6 +208,7 @@
               Self-hosted home lab built on Ubuntu Server for experimentation with infrastructure, networking, and security concepts. Provides centralized file storage, virtual machines, virtual switching, and network monitoring services to test deployments, configurations, and failure scenarios in a controlled environment.
             </p>
             <div class="project-actions">
+              <a class="linkchip" href="homeServer/homeServer.html">More Info</a>
               <a class="linkchip" href="#connect">Discuss this project</a>
             </div>
           </article>
@@ -586,66 +445,11 @@
     </footer>
   </main>
 
+  <script src="shared/navbar.js"></script>
   <script>
-    (function(){
-      const year = document.getElementById('year');
+    (function () {
+      const year = document.getElementById("year");
       if (year) year.textContent = new Date().getFullYear();
-
-      // Desktop dropdown: click-to-toggle (still supports hover via CSS).
-      const dd = document.getElementById('projectsDropdown');
-      const trigger = dd?.querySelector('.dropdown-trigger');
-
-      function closeDesktopDropdown(){
-        dd?.classList.remove('open');
-        trigger?.setAttribute('aria-expanded', 'false');
-      }
-
-      trigger?.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = dd.classList.toggle('open');
-        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-
-      document.addEventListener('click', (e) => {
-        if (!dd) return;
-        if (dd.contains(e.target)) return;
-        closeDesktopDropdown();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeDesktopDropdown();
-      });
-
-      // Mobile menu toggle
-      const menuBtn = document.getElementById('menuBtn');
-      const mobilePanel = document.getElementById('mobilePanel');
-
-      function closeMobilePanel(){
-        mobilePanel?.classList.remove('open');
-        menuBtn?.setAttribute('aria-expanded', 'false');
-      }
-
-      menuBtn?.addEventListener('click', () => {
-        const isOpen = mobilePanel.classList.toggle('open');
-        menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-
-      // Mobile projects dropdown
-      const ddM = document.getElementById('projectsDropdownMobile');
-      const triggerM = ddM?.querySelector('.dropdown-trigger');
-
-      triggerM?.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isOpen = ddM.classList.toggle('open');
-        triggerM.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-
-      // Close mobile panel when any nav link is clicked
-      mobilePanel?.addEventListener('click', (e) => {
-        const a = e.target.closest('a');
-        if (!a) return;
-        closeMobilePanel();
-      });
     })();
   </script>
 </body>
